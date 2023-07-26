@@ -1,4 +1,4 @@
-const HDWalletProvider = require('@truffle/hdwallet-provider');
+const HDWalletProvider = require("@truffle/hdwallet-provider");
 const privateKeys = [
   "d2c587d81f443ab3bac6adf24cd742b1829b7100c6fa34881a75e41d5e66f368",
 ];
@@ -15,15 +15,19 @@ module.exports = {
 
   networks: {
     development: {
-      host: "127.0.0.1",     // Localhost (default: none)
-      port: 7545,            // Standard BSC port (default: none)
-      network_id: "*",       // Any network (default: none)
+      host: "127.0.0.1", // Localhost (default: none)
+      port: 7545, // Standard BSC port (default: none)
+      network_id: "*", // Any network (default: none)
     },
     testnet: {
-      provider: () => new HDWalletProvider(privateKeys, `https://data-seed-prebsc-1-s2.binance.org:8545`),
+      provider: () =>
+        new HDWalletProvider(
+          privateKeys,
+          `https://endpoints.omniatech.io/v1/bsc/testnet/public`
+        ),
       network_id: 97,
-      confirmations: 10,
-      timeoutBlocks: 200,
+      confirmations: 2,
+      timeoutBlocks: 1000,
       skipDryRun: true,
     },
   },
@@ -37,6 +41,6 @@ module.exports = {
   compilers: {
     solc: {
       version: "0.8.4",
-    }
+    },
   },
 };

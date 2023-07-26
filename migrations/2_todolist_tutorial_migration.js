@@ -1,4 +1,3 @@
-
 // Make sure the DevToken contract is included by requireing it.
 const TodolistTutorial = artifacts.require("TodolistTutorial");
 
@@ -6,5 +5,5 @@ const TodolistTutorial = artifacts.require("TodolistTutorial");
 module.exports = async function (deployer, network, accounts) {
   // await while we deploy the DevToken
   await deployer.deploy(TodolistTutorial);
-  await TodolistTutorial.deployed()
+  await TodolistTutorial.deployed();
 };
